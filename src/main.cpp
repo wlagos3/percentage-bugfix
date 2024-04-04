@@ -32,7 +32,7 @@ class $modify(PlayLayer) {
 			percent = (m_player1->getPositionX() / m_endPortal->getPositionX()) * 100.0;
 			m_fields->percentLabel->setString(fmt::to_string((int) percent).append("%").c_str());
 			m_fields->progressSprite->setTextureRect(CCRect(0,0,(m_progressBar->getTextureRect().getMaxX() - 5) * (percent / 100), m_progressBar->getTextureRect().getMaxY() / 2));
-		}
+			}
 		}
     }
 };
