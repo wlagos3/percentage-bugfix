@@ -22,7 +22,7 @@ class $modify(PlayLayer) {
                 }
             }
         } else if (m_fields->progressSprite == nullptr){
-			m_fields->progressSprite = typeinfo_cast<CCSprite*>(m_progressBar->getChildren()->firstObject());
+			m_fields->progressSprite = typeinfo_cast<CCSprite*>(m_progressBar->getChildren()->objectAtIndex(0));
 	} else {
 		float percent;			
 		if (m_player1->getPositionX() > 0 && getCurrentPercent() == 0 && m_fields->useOldLogic == false){
