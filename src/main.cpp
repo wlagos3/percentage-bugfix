@@ -23,16 +23,16 @@ class $modify(PlayLayer) {
             }
         } else if (m_fields->progressSprite == nullptr){
 			m_fields->progressSprite = typeinfo_cast<CCSprite*>(m_progressBar->getChildren()->firstObject());
-		} else {
-			float percent;			
-			if (m_player1->getPositionX() > 0 && getCurrentPercent() == 0 && m_fields->useOldLogic == false){
-				m_fields->useOldLogic = true;
-			}
-			if(m_fields->useOldLogic){
-				percent = (m_player1->getPositionX() / m_endPortal->getPositionX()) * 100.0;
-				m_fields->percentLabel->setString(fmt::to_string((int) percent).append("%").c_str());
-				m_fields->progressSprite->setTextureRect(CCRect(0,0,(m_progressBar->getTextureRect().getMaxX() - 5) * (percent / 100), m_progressBar->getTextureRect().getMaxY() / 2));
-			}
-         }
+	} else {
+		float percent;			
+		if (m_player1->getPositionX() > 0 && getCurrentPercent() == 0 && m_fields->useOldLogic == false){
+			m_fields->useOldLogic = true;
+		}
+		if(m_fields->useOldLogic){
+			percent = (m_player1->getPositionX() / m_endPortal->getPositionX()) * 100.0;
+			m_fields->percentLabel->setString(fmt::to_string((int) percent).append("%").c_str());
+			m_fields->progressSprite->setTextureRect(CCRect(0,0,(m_progressBar->getTextureRect().getMaxX() - 5) * (percent / 100), m_progressBar->getTextureRect().getMaxY() / 2));
+		}
+		}
     }
 };
