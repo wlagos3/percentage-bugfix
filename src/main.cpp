@@ -10,6 +10,8 @@ class $modify(PlayLayer) {
     void updateProgressbar() {
         PlayLayer::updateProgressbar();
         if (!m_level->isPlatformer()){
+		//Credit to FireMario211
+		//https://github.com/FireMario211/Golden-Best/blob/fae9033b781e00ecb86557426fad8e68d19b4ba5/src/main.cpp#L10-L24
             if (m_fields->percentLabel == nullptr) {
                 for (size_t i = 0; i < this->getChildrenCount(); i++) {
                     auto obj = this->getChildren()->objectAtIndex(i);
