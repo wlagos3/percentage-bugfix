@@ -6,6 +6,7 @@
 #include <Geode/modify/GJBaseGameLayer.hpp>
 
 #include <iomanip>
+#include <ios>
 #include <sstream>
 
 using namespace geode::prelude;
@@ -39,7 +40,9 @@ class $modify(PlayLayer) {
             if(m_fields->useOldLogic || Mod::get()->getSettingValue<bool>("force-enable")){
                 float percent = (m_player1->getPositionX() / m_endPortal->getPositionX()) * 100.0;
                 std::ostringstream s;
-                s << std::setprecision(Mod::get()->getSettingValue<int64_t>("precision") + 2) << percent;	
+                s << std::fixed;
+                s << std::setprecision(Mod::get()->getSettingValue<int64_t>("precision"));
+                s << percent;	
                 const char* percentStr = s.str().append("%").c_str();	
                 m_fields->percentLabel->setString(percentStr);
                 m_fields->progressSprite->setTextureRect(CCRect(0,0,(m_progressBar->getTextureRect().getMaxX() - 5) * (percent / 100), m_progressBar->getTextureRect().getMaxY() / 2));
