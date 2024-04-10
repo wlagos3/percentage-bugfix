@@ -21,7 +21,6 @@ class $modify(PlayLayer) {
         if (!m_level->isPlatformer()){
             if (m_fields->percentLabel == nullptr) {
                 m_fields->percentLabel = static_cast<CCLabelBMFont*>(this->getChildByID("percentage-label"));
-                
             } else if (m_fields->progressSprite == nullptr){
                 CCSprite* progressSprite = static_cast<CCSprite*>(static_cast<CCSprite*>(this->getChildByID("progress-bar")->getChildren()->objectAtIndex(0)));
                 m_fields->progressSprite = progressSprite;
