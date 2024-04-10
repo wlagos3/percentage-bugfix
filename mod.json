@@ -10,6 +10,13 @@
   "name": "Percentage Bugfix",
   "developer": "ZSA",
   "description": "",
+  "dependencies": [
+    {
+      "id": "geode.node-ids",
+      "version": "1.8.1",
+      "importance": "required"
+    }
+  ],
   "settings": {
     "force-enable": {
       "name": "Force 2.1 logic",

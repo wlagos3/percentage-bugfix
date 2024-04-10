@@ -1,5 +1,6 @@
 
 #include "Geode/binding/GameManager.hpp"
+#include "Geode/cocos/sprite_nodes/CCSprite.h"
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
 #include <Geode/modify/GJBaseGameLayer.hpp>
@@ -19,21 +20,13 @@ class $modify(PlayLayer) {
         PlayLayer::updateProgressbar();
         if (!m_level->isPlatformer()){
             if (m_fields->percentLabel == nullptr) {
-                for (int i = 0; i < this->getChildrenCount(); i++) {
-                    if (CCLabelBMFont* object = typeinfo_cast<CCLabelBMFont*>(this->getChildren()->objectAtIndex(i))) {
-                        if (strcmp(&object->getString()[(strlen(object->getString()) - 1)], "%") == 0) {
-                            m_fields->percentLabel = object;
-                            static_cast<CCNode*>(object)->setID("level-percent-label");
-                            break;
-                        }
-                    }
-                }
+                m_fields->percentLabel = static_cast<CCLabelBMFont*>(this->getChildByID("percentage-label"));
+                
             } else if (m_fields->progressSprite == nullptr){
-                CCSprite* progressSprite = typeinfo_cast<CCSprite*>(m_progressBar->getChildren()->objectAtIndex(0));
+                CCSprite* progressSprite = static_cast<CCSprite*>(static_cast<CCSprite*>(this->getChildByID("progress-bar")->getChildren()->objectAtIndex(0)));
                 m_fields->progressSprite = progressSprite;
-                static_cast<CCNode*>(progressSprite)->setID("level-progress-bar-sprite");
-            }
-            else {	
+                static_cast<CCNode*>(progressSprite)->setID("progress-bar-indicator");
+            } else {
                 if (!Mod::get()->getSettingValue<bool>("force-enable") && m_player1->getPositionX() > 0 && getCurrentPercent() == 0 && m_fields->useOldLogic == false){
                     m_fields->useOldLogic = true;
                 }
