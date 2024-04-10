@@ -12,8 +12,8 @@ using namespace geode::prelude;
 
 class $modify(PlayLayer) {
     CCLabelBMFont* percentLabel;
-	CCSprite* progressSprite;
-	bool useOldLogic = false;
+    CCSprite* progressSprite;
+    bool useOldLogic = false;
     bool useDecimals = GameManager::get()->getGameVariable("0126");
     void updateProgressbar() {
         PlayLayer::updateProgressbar();
