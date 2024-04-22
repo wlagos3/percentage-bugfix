@@ -1,15 +1,15 @@
 {
-  "geode": "2.0.0-beta.23",
+  "geode": "2.0.0-beta.24",
   "gd": {
     "win": "2.204",
     "android": "2.205",
     "mac": "2.200"
   },
-  "version": "v1.0.1",
+  "version": "v1.0.2",
   "id": "zsa.percentage-bugfix",
   "name": "Percentage Bugfix",
   "developer": "ZSA",
-  "description": "",
+  "description": "Fix for the 2.2 start position percentage bug.",
   "dependencies": [
     {
       "id": "geode.node-ids",
