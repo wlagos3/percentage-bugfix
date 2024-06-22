@@ -34,12 +34,6 @@ jobs:
 
       - name: Build the mod
         uses: geode-sdk/build-geode-mod/combine@main
-        with:
-          bindings: geode-sdk/bindings
-          bindings-ref: main
-          sdk: v2.0.0-beta.27
-          combine: true
-          target: ${{ matrix.config.target }}
 
   package:
     name: Package builds
